@@ -5,10 +5,10 @@ layout: feed
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 	<title>Dan Barkwell's Blog</title>
-	<link href="https://dbarkwell.github.io/blog/atom.xml" rel="self"/>
-	<link href="https://dbarkwell.github.io/blog"/>
+	<link href="http://dbarkwell.github.io/blog/atom.xml" rel="self"/>
+	<link href="http://dbarkwell.github.io/blog"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>https://dbarkwell.github.io/blog</id>
+	<id>http://dbarkwell.github.io/blog</id>
 	<author>
 		<name>Dan Barkwell</name>
 		<email>dbarkwell@pelism.com</email>
@@ -17,9 +17,9 @@ layout: feed
 	{% for post in site.posts %}
 		<entry>
 			<title>{{ post.title }}</title>
-			<link href="https://dbarkwell.github.io{{ post.url }}"/>
+			<link href="http://dbarkwell.github.io{{ post.url }}"/>
 			<updated>{{ post.date | date_to_xmlschema }}</updated>
-			<id>https://dbarkwell.github.io{{ post.id }}</id>
+			<id>http://dbarkwell.github.io{{ post.id }}</id>
 			<content type="html">{{ post.content | xml_escape }}</content>
 		</entry>
 	{% endfor %}
