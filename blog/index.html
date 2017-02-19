@@ -2,8 +2,21 @@
 layout: default
 title: Dan Barkwell's Blog
 ---
-<ul class="posts">
+<div class="posts">
     {% for post in site.posts %}
-    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> - <span>{{ post.description }}</span><span>({{ post.date | date_to_string }})</span></li>
+    <article class="post {{ post.tags }}">
+        <header>
+            <!-- category -->
+            <h2 class="post-title">
+                <a href="{{ post.url }}" title="{{ post.subject }}">{{ post.subject }}</a>
+            </h2>
+            <div class="post-meta">
+                <h3>
+                    <span>{{ post.date-posted | date_to_string }}</span>
+                </h3>
+            </div>
+        </header>
+        <div class="description">{{ post.description }}</div>
+    </article>
     {% endfor %}
-</ul>
+</div>
