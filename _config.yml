@@ -1,3 +1,6 @@
 name: Dan Barkwell
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+theme: dinky
+gems: 
+    - jekyll-feed
