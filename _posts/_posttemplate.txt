@@ -1,0 +1,13 @@
+---
+layout: post
+title:
+excerpt:
+url:
+date:
+id:
+categories:
+tags:
+path:
+next:
+previous:
+---

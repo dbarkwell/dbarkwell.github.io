@@ -2,6 +2,15 @@
 layout: default
 title: Dan Barkwell
 ---
-<div class="about">
-	<p></p>
-</div>
+{% for post in site.posts %}
+    <article class="post {{ post.tags }}">
+        <div>
+            <!-- category -->
+            <h2 class="post-title">
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> &bull; {{ post.date | date: "%B %d, %Y" }}
+            </h2>
+        </div>
+        <div class="description">{{ post.excerpt }}</div>
+    </article>
+    <hr/>
+{% endfor %}

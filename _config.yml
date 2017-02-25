@@ -1,6 +1,8 @@
-name: Dan Barkwell
-markdown: kramdown
+title: '@dbarkwell'
+description: 'tech --verbose'
 permalink: /blog/:year/:month/:day/:title
-theme: dinky
-gems: 
-    - jekyll-feed
+theme: jekyll-theme-architect
+gems: ['jekyll-feed', 'jekyll-github-metadata']
+repository: dbarkwell/dbarkwell.github.io
+show_downloads: false
+google_analytics: ""
