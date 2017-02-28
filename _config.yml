@@ -5,4 +5,4 @@ theme: jekyll-theme-architect
 gems: ['jekyll-feed', 'jekyll-github-metadata']
 repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
-google_analytics: ""
+google_analytics: "UA-92762134-1"
