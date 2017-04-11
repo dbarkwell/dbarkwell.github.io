@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Azure Recovery Services vaults'
-categories: 'azure'
+title: "Azure Recovery Services vaults"
+categories: "azure"
 tags: ["backup", "dpm"]
 ---
 This post will guide you through the steps needed to setup a Microsoft Azure Backup Server.
