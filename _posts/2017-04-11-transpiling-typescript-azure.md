@@ -31,7 +31,7 @@ Steps in _italics_ are run at a command prompt.
 
 1.  In the root directory of your project, run:  _azure site deploymentscript --node_
 
-2.  Two files will be generated. .deployment and deploy.cmd
+2.  Two files will be generated: .deployment and deploy.cmd
 
 3.  Open deploy.cmd. Under the Deployment section, find the following code:
 
@@ -64,6 +64,4 @@ IF NOT EXIST "%DEPLOYMENT_SOURCE%\dist" (
 
 Check in your files, and deploy your Azure App Service. As the project is deploying, your typescipt files will be transpiled into javascript files. Check for any errors, and check that your javascript files are complete. If you have any errors or the files aren't generated, check your typings files.
 
-Finally note...I use Visual Studio Online to host my projects. It's stupid easy to connect a project to a deployment in Azure and deploy every time you check in files in your project.
-
-
+Final note...I use Visual Studio Online to host my projects. It's stupid easy to connect a project to a deployment in Azure and deploy every time you check in files in your project.
