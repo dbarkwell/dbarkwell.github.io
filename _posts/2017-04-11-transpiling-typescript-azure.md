@@ -1,15 +1,8 @@
 ---
 layout: post
 title: "Transpiling Typescript in Deployment to Azure App Service"
-excerpt:
-url:
-date:
-id:
 categories: "devops"
 tags: ["typescript"]
-path:
-next:
-previous:
 ---
 I recently wrote a Node.js application that is hosted as an Azure App Service. I didn't want to check in the .js files. Instead, I wanted to generate the .js files when I deployed the application to Azure. The entire process was very easy thanks to a few people/websites. I'd like to thank [codefoster](http://www.codefoster.com/tscazure/), [jj09.net](http://jj09.net/compiling-typescript-files-on-azure-web-apps/), and [https://github.com/projectkudu/kudu/issues/1753](https://github.com/projectkudu/kudu/issues/1753]).
 

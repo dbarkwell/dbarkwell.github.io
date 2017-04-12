@@ -10,7 +10,7 @@ title: Dan Barkwell
                 <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> &bull; {{ post.date | date: "%B %d, %Y" }}
             </h2>
         </div>
-        <div class="description">{{ post.excerpt }}</div>
+        <div class="description">{{ post.excerpt }} <span><a href="{{ post.url }}" role="button">read more...</a></span></div>
     </article>
     <hr/>
 {% endfor %}
