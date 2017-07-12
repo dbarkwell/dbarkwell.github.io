@@ -5,4 +5,10 @@ theme: jekyll-theme-architect
 gems: ['jekyll-feed', 'jekyll-github-metadata']
 repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
-google_analytics: "UA-92762134-1"
+google_analytics: 'UA-92762134-1'
+links:
+  - 'Playing with AR': https://youtu.be/fAumbRHNETU
+  - 'roxybot - Facebook Messenger Bot': https://youtu.be/gioBhFUN9kk
+  - 'Local SharePoint Framework Development': https://youtu.be/SgH8pNbFEu8
+  - 'MS Graph and Orchard CMS': https://youtu.be/BkY3IpL9fM4
+  
