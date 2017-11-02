@@ -4,7 +4,8 @@ title: "Azure timer function to scan for any pwned email addresses and store pwn
 categories: "azure"
 tags: ["azure"]
 ---
-
+I wrote an Azure timer function that pulls email addresses from Azure AD using the Microsoft Graph API. Those email addresses are submitted to HaveIBeenPwned.com. If any results are returned, they are stored in a SharePoint list, again using the Microsoft Graph API. Finally, I created a Flow workflow on the SharePoint list to send a notification to a Microsoft Teams channel any time a new item is added to the SharePoint list.
+ 
 ### Visual Studio
 
 _Ensure you have the Azure development workload install as part of Visual Studio 2017_
