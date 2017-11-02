@@ -1,0 +1,96 @@
+---
+layout: post
+title: "Azure timer function to scan for any pwned email addresses and store pwned items in SharePoint list"
+categories: "azure"
+tags: ["azure"]
+---
+
+### Visual Studio
+
+_Ensure you have the Azure development workload install as part of Visual Studio 2017_
+
+1. In Visual Studio, select 'File' -> 'New' -> 'Project...'. Under 'Cloud', select Azure Functions. Name your project and click 'OK'
+
+![visual studio new project](/assets/images/posts/2017/11/01/new-project.png "New project")
+
+2. The Azure Storage Emulator does not support Azure Functions locally, so a connection to an Azure Storage Account is required. To connect to an Azure Storage Account from your Azure Function, open Cloud Explorer (under the View menu or Ctrl+\, Ctrl+X). Connect to Azure, and navigate to a Storage Account. If you do not have a Storage Account, go to the Azure portal and create one ([About Azure storage accounts](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)). Click on your storage account and click on the Properties tab. There will be a property called 'Primary Connection String'. Copy the connection and paste it into the value of AzureWeJobsStorage in the local.settings.json within the project. 
+
+![storage account](/assets/images/posts/2017/11/01/storage-acct.png "Storage account")
+
+3. Right click on your Project and from the context menu, select 'Add' -> 'New Item...'. Search or scroll through items to find 'Azure Function'. Enter a name for the class and click 'Add'.
+
+![add new function](/assets/images/posts/2017/11/01/function-name.png "New Function")
+
+4. Add a 'Timer trigger' function. The Schedule is based on [NCrontab](https://github.com/atifaziz/NCrontab) in the 6 field format. Note: the schedule I attempted to use was every Sunday at midnight. I messed up the schedule in the image below. It should be: 0 0 0 * * 0.
+
+![timer trigger](/assets/images/posts/2017/11/01/timer-trigger.png "Timer Trigger")
+
+### Application
+
+see https://github.com/dbarkwell/EnterprisePwned
+
+### Register Application
+
+1. Navigate to https://apps.dev.microsoft.com in your browser
+
+2. Click 'Add an app'
+
+3. Enter your Application Name. Take note of the Application Id. This will be your Client Id.
+
+4. Click 'Generate New Password'. Take note of the Password. This will be your Client Secret.
+
+5. Click 'Add Platform'. Add a web platform. For local testing, add your localhost address.
+
+6. Under Microsoft Graph Permissions, click 'Add' next to Application Permissions. This will add permissions for an app as opposed to added delegated permissions to a user. Add 'Directory.Read.All', 'Sites.ReadWrite.All', and 'User.Read.All' permissions.
+
+7. Click 'Save'.
+
+8. Perform a GET request to the following address: 
+
+https://login.microsoftonline.com/{tenant}/adminconsent?client_id={Client Id / Application Id}&redirect_uri={localhost}
+
+Replace tenant, client id, and localhost values. This will authorize the changes you just made.
+
+### SharePoint
+
+1. Create a SharePoint (Office 365) site or add a list to an existing SharePoint site.
+
+2. The list should contain the following fields:
+
+![SP list](/assets/images/posts/2017/11/01/sp-list.png "SharePoint list")
+
+3. The Key field is used to only store unique values in the list.
+
+![SP key](/assets/images/posts/2017/11/01/sp-key.png "SharePoint list key")
+
+
+### Flow
+Whenever a new item gets added to a list, send a notification to a Microsoft Teams channel.
+
+
+1. From the SharePoint list, click on the 'Flow' dropdown. Click 'Create Flow'.
+
+2. Click on 'See more templates'.
+
+3. Click on 'Create a flow from blank'.
+
+4. In the search box for 'Add a trigger', search for SharePoint. Select 'SharePoint - When an item is created'.
+
+5. Enter site address if it does not appear in the drop down. Select the list name. Click on 'New step'.
+
+6. Add a condition. Add: @not(empty(triggerBody()?['Title'])) as the condition. This will only trigger if there is an email address.
+
+7. Under 'If yes', click 'Add an action'.
+
+8. Search for Teams. Select 'Microsoft Teams - Post message'.
+
+9. Enter the 'Team Id', 'Channel Id', and 'Message'. For the 'Message', you can add in fields from the SharePoint list.
+
+10. Click on 'Save'
+
+### Results
+
+![SP](/assets/images/posts/2017/11/01/sp.png "SharePoint results")
+
+
+
