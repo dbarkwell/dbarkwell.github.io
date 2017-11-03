@@ -5,7 +5,7 @@ categories: "azure"
 tags: ["azure"]
 ---
 I wrote an Azure timer function that pulls email addresses from Azure AD using the Microsoft Graph API. Those email addresses are submitted to HaveIBeenPwned.com. If any results are returned, they are stored in a SharePoint list, again using the Microsoft Graph API. Finally, I created a Flow workflow on the SharePoint list to send a notification to a Microsoft Teams channel any time a new item is added to the SharePoint list.
- 
+
 ### Visual Studio
 
 _Ensure you have the Azure development workload install as part of Visual Studio 2017_
@@ -29,6 +29,15 @@ _Ensure you have the Azure development workload install as part of Visual Studio
 ### Application
 
 see https://github.com/dbarkwell/EnterprisePwned
+
+The [README.md](https://github.com/dbarkwell/EnterprisePwned/blob/master/EnterprisePwned/README.md) contains the local.settings.json template to use. Enter values for the following fields:
+
+- AzureWebJobsStorage
+- Tenant
+- ClientId
+- ClientSecret
+- SiteId
+- ListId
 
 ### Register Application
 
@@ -68,30 +77,52 @@ Replace tenant, client id, and localhost values. This will authorize the changes
 ### Flow
 Whenever a new item gets added to a list, send a notification to a Microsoft Teams channel.
 
+1. From the SharePoint list, click on the 'Flow' dropdown. Click 'Create a Flow'.
 
-1. From the SharePoint list, click on the 'Flow' dropdown. Click 'Create Flow'.
+![SP Flow](/assets/images/posts/2017/11/01/sp-flow.png "SharePoint - Flow")
 
-2. Click on 'See more templates'.
+2. Click 'Show more'. Click 'See more templates'.
 
 3. Click on 'Create a flow from blank'.
 
+![Create Flow](/assets/images/posts/2017/11/01/create-flow.png "Create a Flow")
+
 4. In the search box for 'Add a trigger', search for SharePoint. Select 'SharePoint - When an item is created'.
+
+![SP trigger](/assets/images/posts/2017/11/01/sp-trigger.png "Search for trigger")
 
 5. Enter site address if it does not appear in the drop down. Select the list name. Click on 'New step'.
 
+![SP item created trigger](/assets/images/posts/2017/11/01/sp-item-created.png "When an item is created trigger")
+
 6. Add a condition. Add: @not(empty(triggerBody()?['Title'])) as the condition. This will only trigger if there is an email address.
 
+![Add condition](/assets/images/posts/2017/11/01/add-condition.png "Add condition")
+
 7. Under 'If yes', click 'Add an action'.
+
+![Choose action](/assets/images/posts/2017/11/01/choose-action.png "Choose an action")
 
 8. Search for Teams. Select 'Microsoft Teams - Post message'.
 
 9. Enter the 'Team Id', 'Channel Id', and 'Message'. For the 'Message', you can add in fields from the SharePoint list.
 
-10. Click on 'Save'
+![Teams action](/assets/images/posts/2017/11/01/teams-setup.png "Setup Microsoft Teams action")
+
+![Teams message](/assets/images/posts/2017/11/01/teams-message.png "Add teams message")
+
+10. Click 'Save flow'
+
+![Save Flow](/assets/images/posts/2017/11/01/save-flow.png "Save Flow")
 
 ### Results
 
 ![SP](/assets/images/posts/2017/11/01/sp.png "SharePoint results")
 
+![Teams](/assets/images/posts/2017/11/01/teams.png "Teams result")
 
+### Deployment
 
+### Final Thoughts
+
+At some point I will go back and change the SharePoint functionality. There should be two lists. One list would hold the breach information and the other would hold the breached addresses with a lookup to the breach information. 
