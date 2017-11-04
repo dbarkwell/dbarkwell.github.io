@@ -10,19 +10,19 @@ I wrote an Azure timer function that pulls email addresses from Azure AD using t
 
 _Ensure you have the Azure development workload install as part of Visual Studio 2017_
 
-1. In Visual Studio, select 'File' -> 'New' -> 'Project...'. Under 'Cloud', select Azure Functions. Name your project and click 'OK'
+1.  In Visual Studio, select 'File' -> 'New' -> 'Project...'. Under 'Cloud', select Azure Functions. Name your project and click 'OK'
 
 ![visual studio new project](/assets/images/posts/2017/11/01/new-project.png "New project")
 
-2. The Azure Storage Emulator does not support Azure Functions locally, so a connection to an Azure Storage Account is required. To connect to an Azure Storage Account from your Azure Function, open Cloud Explorer (under the View menu or Ctrl+\, Ctrl+X). Connect to Azure, and navigate to a Storage Account. If you do not have a Storage Account, go to the Azure portal and create one ([About Azure storage accounts](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)). Click on your storage account and click on the Properties tab. There will be a property called 'Primary Connection String'. Copy the connection and paste it into the value of AzureWeJobsStorage in the local.settings.json within the project. 
+2.  The Azure Storage Emulator does not support Azure Functions locally, so a connection to an Azure Storage Account is required. To connect to an Azure Storage Account from your Azure Function, open Cloud Explorer (under the View menu or Ctrl+\, Ctrl+X). Connect to Azure, and navigate to a Storage Account. If you do not have a Storage Account, go to the Azure portal and create one ([About Azure storage accounts](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)). Click on your storage account and click on the Properties tab. There will be a property called 'Primary Connection String'. Copy the connection and paste it into the value of AzureWeJobsStorage in the local.settings.json within the project. 
 
 ![storage account](/assets/images/posts/2017/11/01/storage-acct.png "Storage account")
 
-3. Right click on your Project and from the context menu, select 'Add' -> 'New Item...'. Search or scroll through items to find 'Azure Function'. Enter a name for the class and click 'Add'.
+3.  Right click on your Project and from the context menu, select 'Add' -> 'New Item...'. Search or scroll through items to find 'Azure Function'. Enter a name for the class and click 'Add'.
 
 ![add new function](/assets/images/posts/2017/11/01/function-name.png "New Function")
 
-4. Add a 'Timer trigger' function. The Schedule is based on [NCrontab](https://github.com/atifaziz/NCrontab) in the 6 field format. Note: the schedule I attempted to use was every Sunday at midnight. I messed up the schedule in the image below. It should be: 0 0 0 * * 0.
+4.  Add a 'Timer trigger' function. The Schedule is based on [NCrontab](https://github.com/atifaziz/NCrontab) in the 6 field format. Note: the schedule I attempted to use was every Sunday at midnight. I messed up the schedule in the image below. It should be: 0 0 0 * * 0.
 
 ![timer trigger](/assets/images/posts/2017/11/01/timer-trigger.png "Timer Trigger")
 
@@ -41,21 +41,21 @@ The [README.md](https://github.com/dbarkwell/EnterprisePwned/blob/master/Enterpr
 
 ### Register Application
 
-1. Navigate to https://apps.dev.microsoft.com in your browser
+1.  Navigate to https://apps.dev.microsoft.com in your browser.
 
-2. Click 'Add an app'
+2.  Click 'Add an app'.
 
-3. Enter your Application Name. Take note of the Application Id. This will be your Client Id.
+3.  Enter your Application Name. Take note of the Application Id. This will be your Client Id.
 
-4. Click 'Generate New Password'. Take note of the Password. This will be your Client Secret.
+4.  Click 'Generate New Password'. Take note of the Password. This will be your Client Secret.
 
-5. Click 'Add Platform'. Add a web platform. For local testing, add your localhost address.
+5.  Click 'Add Platform'. Add a web platform. For local testing, add your localhost address.
 
-6. Under Microsoft Graph Permissions, click 'Add' next to Application Permissions. This will add permissions for an app as opposed to added delegated permissions to a user. Add 'Directory.Read.All', 'Sites.ReadWrite.All', and 'User.Read.All' permissions.
+6.  Under Microsoft Graph Permissions, click 'Add' next to Application Permissions. This will add permissions for an app as opposed to added delegated permissions to a user. Add 'Directory.Read.All', 'Sites.ReadWrite.All', and 'User.Read.All' permissions.
 
-7. Click 'Save'.
+7.  Click 'Save'.
 
-8. Perform a GET request to the following address: 
+8.  Perform a GET request to the following address: 
 
 https://login.microsoftonline.com/{tenant}/adminconsent?client_id={Client Id / Application Id}&redirect_uri={localhost}
 
@@ -63,9 +63,9 @@ Replace tenant, client id, and localhost values. This will authorize the changes
 
 ### SharePoint
 
-1. Create a SharePoint (Office 365) site or add a list to an existing SharePoint site.
+1.  Create a SharePoint (Office 365) site or add a list to an existing SharePoint site.
 
-2. The list should contain the following fields:
+2.  The list should contain the following fields:
 
 ![SP list](/assets/images/posts/2017/11/01/sp-list.png "SharePoint list")
 
