@@ -123,6 +123,62 @@ Whenever a new item gets added to a list, send a notification to a Microsoft Tea
 
 ### Deployment
 
+1. Log into the Azure Portal
+
+2. Click 'New' to create a resource.
+
+![New resource](/assets/images/posts/2017/11/01/new.png "New resource")
+
+3. Search for 'function'. Click 'Function App' in the 'Web + Mobile' category.
+
+![Function app](/assets/images/posts/2017/11/01/function-app.png "Function app in Web + Mobile")
+
+4. Click 'Create'
+
+![Create](/assets/images/posts/2017/11/01/create-function.png "Create Function")
+
+5. Add 'App name', 'Subscription', 'Resource Group', 'Hosting Plan', 'Location', and 'Storage'. Click 'Create'.
+
+![Setup Function](/assets/images/posts/2017/11/01/function-setup.png "Setup Function")
+
+6. Once your Function App has been deployed, you can navigate to it from the Notifications, or from the left Navigation.
+
+7. Click on + beside 'Functions' under your Function App heading.
+
+![Function deploy](/assets/images/posts/2017/11/01/function-deploy1.png "Add function")
+
+8. These steps will outline deploying from source control. The function could also be added directly in the Azure Portal. Click 'Start from source control'. 
+
+![Deploy from source](/assets/images/posts/2017/11/01/function-deploy2.png "Deploy from source code")
+
+9. Click 'Setup' to setup the deployment. Click 'Choose Source'. You can connect to serveral source control repositories or file stores. Normally I deploy from Visual Studio Team Services, but in this example I will deploy from GitHub. Click 'GitHub'
+
+![Source control](/assets/images/posts/2017/11/01/source-control.png "Add source control repo")
+
+10. Add 'Authorization', 'Choose project', 'Choose branch' and click 'Ok'. 
+
+![Deploy setup](/assets/images/posts/2017/11/01/deploy-setup.png "Source control deploy setup")
+
+11. After the Deployment has been setup, wait for the function to deploy and navigate back to the Function Apps screen. Click 'Application settings'.
+
+![Application settings](/assets/images/posts/2017/11/01/app-settings.png "Application settings")
+
+12. Under 'Application settings', click 'Add new setting'. This is where you will add the Environment Variables:
+
+- Tenant
+- ClientId
+- ClientSecret
+- SiteId
+- ListId
+
+AzureWebJobsStorage has already been populated from the Function setup, so you do not need to change that setting. Click 'Save'.
+
+![Environment Variables](/assets/images/posts/2017/11/01/env-variables.png "Add Environment Variables")
+
+13. Restart your function.
+
+![Restart](/assets/images/posts/2017/11/01/restart.png "Restart function")
+
 ### Final Thoughts
 
 At some point I will go back and change the SharePoint functionality. There should be two lists. One list would hold the breach information and the other would hold the breached addresses with a lookup to the breach information. 
