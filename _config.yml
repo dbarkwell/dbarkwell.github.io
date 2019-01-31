@@ -7,6 +7,10 @@ repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
 google_analytics: 'UA-92762134-1'
 links:
+  - 'Playing I spy with Alexa': https://youtu.be/aDf6srvKt-w
+  - 'Alexa and MiniTree': https://youtu.be/gKKaQC-lrao
+  - 'Oh Christmas Tree test run': https://youtu.be/WKgWov7pPYk
+  - 'PiHut 3D Xmas Tree for Raspberry Pi': https://youtu.be/BxrLb01So8U
   - 'Playing with AR': https://youtu.be/fAumbRHNETU
   - 'roxybot - Facebook Messenger Bot': https://youtu.be/gioBhFUN9kk
   - 'Local SharePoint Framework Development': https://youtu.be/SgH8pNbFEu8
