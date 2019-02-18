@@ -2,7 +2,7 @@ title: '@dbarkwell'
 description: 'tech --verbose'
 permalink: /blog/:year/:month/:day/:title
 theme: jekyll-theme-architect
-gems: ['jekyll-feed', 'jekyll-github-metadata']
+plugins: ['jekyll-feed', 'jekyll-github-metadata']
 repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
 google_analytics: 'UA-92762134-1'
