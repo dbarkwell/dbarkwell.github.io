@@ -78,12 +78,15 @@ az ad group member add --group <group_object_id> --member-id <service_principal_
 
 ### Configure Authorization Tokens
 
-Run the following commands to configure Pulumi. Note the --secret on the azure:clientSecret command!
+Run the following commands to configure Pulumi. **Note the --secret on the azure:clientSecret command!**
 
-pulumi config set azure:clientId <client_id>
-pulumi config set azure:clientSecret <client_secret> --secret
-pulumi config set azure:tenantId <tenant_id>
-pulumi config set azure:subscriptionId <subscription_id>
+pulumi config set azure:clientId &lt;client_id&gt;
+
+pulumi config set azure:clientSecret &lt;client_secret&gt; --secret
+
+pulumi config set azure:tenantId &lt;tenant_id&gt;
+
+pulumi config set azure:subscriptionId &lt;subscription_id&gt;
 
 ### Pulumi up
 
