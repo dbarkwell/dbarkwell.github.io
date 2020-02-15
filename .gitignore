@@ -2,3 +2,4 @@ _site/
 cert/
 /Gemfile.lock
 .idea
+.jekyll-metadata
