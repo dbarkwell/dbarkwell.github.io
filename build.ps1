@@ -15,4 +15,4 @@ If (-Not (Test-Path $CertRoot\cacert.pem))
 Set-Item -Path env:SSL_CERT_FILE -Value ("$PSScriptRoot\cert\cacert.pem")
 ruby -rnet/https -e "Net::HTTP.get URI('https://github.com')"
 
-bundle exec jekyll s -w
+bundle exec jekyll s -w --incremental
