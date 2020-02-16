@@ -8,6 +8,10 @@ previous:
 ---
 I had an idea for an application I wanted to build and deploy to Azure. This was the perfect time to try out [Pulumi](https://www.pulumi.com/){:target="_blank"} to provision the Azure resources I would need. I read the [getting started](https://www.pulumi.com/docs/get-started/azure/){:target="_blank"} guide but I found it too open. I wanted to restrict the Service Principal to a single Resource Group. After setting up the Service Principal and restricting it to the Resource Group, I ran into an issue. The account was unable to register the resource providers. I did some searching and found this [article](https://mobilefirstcloudfirst.net/2018/03/fix-error-azure-subscription-doesnt-permissions-register-resource-provider/){:target="_blank"} that explained what was happening and the solution. I deleted my setup and tried again. This is what I did...
 
+Edit: 
+
+It was pointed out on [Twitter](https://twitter.com/MikhailShilkov/status/1228995173050437632){:target="_blank"} that instead of using the Azure CLI, this could be done within Pulumi itself. Here is the [project](https://github.com/dbarkwell/PulumiAzureSetup){:target="_blank"} that does the same setup outlined in the blog post using Pulumi.
+
 **note: replace values indicated within the &lt;&gt;**
 
 ### Create Group 
