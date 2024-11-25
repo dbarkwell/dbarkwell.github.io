@@ -1,13 +1,12 @@
 title: '@dbarkwell'
 description: 'tech --verbose'
-permalinks: 
-  blog: '/:year/:month/:day/:title'
-  .well-known: '/:path'
+permalink: /blog/:year/:month/:day/:title
 theme: jekyll-theme-architect
 plugins: ['jekyll-feed', 'jekyll-github-metadata']
 repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
 google_analytics: 'UA-92762134-1'
+include: ['.well-known/atproto-did']
 links:
   - 'Playing I spy with Alexa': https://youtu.be/aDf6srvKt-w
   - 'Alexa and MiniTree': https://youtu.be/gKKaQC-lrao
