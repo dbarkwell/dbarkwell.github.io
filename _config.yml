@@ -6,7 +6,7 @@ plugins: ['jekyll-feed', 'jekyll-github-metadata']
 repository: dbarkwell/dbarkwell.github.io
 show_downloads: false
 google_analytics: 'UA-92762134-1'
-include: ['./.well-known']
+include: ['.well-known']
 links:
   - 'Playing I spy with Alexa': https://youtu.be/aDf6srvKt-w
   - 'Alexa and MiniTree': https://youtu.be/gKKaQC-lrao
